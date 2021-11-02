@@ -6,21 +6,52 @@ using System.Threading.Tasks;
 
 namespace Занятие_11
 {
-    class Program
-    {//решение линейного уравнения
-        static void Main(string[] args)
+    //решение линейного уравнения
 
-        
-            struct Reshenie
+    struct Reshenie
+    {
+        private double firstNumber;
+        private double secondNumber;
+        private double x;
+
+        public void Dano(double b, double k)
         {
-            private double firstNumber;
-            private double secondNumber;
-            private double x;
-            public void
-
+            firstNumber = b;
+            secondNumber = k;
+            Root();
         }
-            double k, b;
-            
+        public void Root()
+        {
+            if (secondNumber != 0)
+            {
+                x = -firstNumber / secondNumber;
+                Console.WriteLine("Решение уравнения х: {0,2:f2}", x);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Деление на ноль! Введите другое значение K");
+                Console.ReadKey();
+            }
         }
     }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Решение линейного уравнения типа  0=kx+b");
+            Reshenie reshenie = new Reshenie();
+            Console.WriteLine("Введите значение b: ");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите значение k: ");
+            double k = Convert.ToDouble(Console.ReadLine());
+            reshenie.Dano(b, k);
+        }
+    }
+
+
+
 }
+    
+
